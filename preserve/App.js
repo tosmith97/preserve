@@ -45,13 +45,18 @@ export default class App extends React.Component {
               coordinate={{
                 latitude: item.lat,
                 longitude: item.long
-              }}
+                }}
+                title={item.title}
+                description= {item.description}
           />
       })}
 
       {this.state.markers.map(function(element){
       return <MapView.Marker
         {...element}
+        onPress={function(){
+          console.log("tapp marker")
+        }}
       />
       })}
 
