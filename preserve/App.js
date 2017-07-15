@@ -5,24 +5,37 @@ import { MapView } from 'expo';
 import { Button } from 'react-native-elements';
 import testimony from './testimony.json'
 
+import Geocoder from 'react-native-geocoding';
+
+Geocoder.setApiKey('AIzaSyBkB_MKN6sshXV2H8PZRjyH2ABvcu4FBC4');
+
 export default class App extends React.Component {
   
   state = {
   markers: []
   }
 
+
   _handlePress = (event)=>{
     console.log("got clicked1");
-    this.setState({
-      markers: [... this.state.markers,
-            {
-            coordinate:{latitude: 37.78825,
-            longitude: -122.4324},
-            title:"title",
-            description:"description"
-          }
-         ]
-    });
+    Geocoder.getFromLocation("43 Fremont Rd, Newark DE").then(json => {
+        var location = json.results[0].geometry.location;
+        this.setState({
+          markers: [... this.state.markers,
+                {
+                coordinate:{latitude: location.lat,
+                longitude: location.lng},
+                title:"title",
+                description:"description"
+              }
+             ]
+        });
+      },
+      error => {
+        alert(error);
+      }
+      )
+    
   }
   
   render() {
