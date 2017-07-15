@@ -8,7 +8,7 @@
 
         {
             "lat": 37.7846514,
-            "long": 122.3994915,
+            "long": -122.3994915,
             "testimony": "Tyler works here"
         },
 
@@ -20,7 +20,7 @@
 
         {
             "lat": 37.7643761,
-            "long": 122.459239,
+            "long": -122.459239,
             "testimony": "clutch burritos"
         }
     ]       
