@@ -1,0 +1,27 @@
+{
+    "testimonials": [
+        {
+            "lat": 37.7766135,
+            "long": -122.3943623,
+            "testimony": "Fidel works here"
+        },
+
+        {
+            "lat": 37.7846514,
+            "long": 122.3994915,
+            "testimony": "Tyler works here"
+        },
+
+        {
+            "lat": 37.7822671,
+            "long": -122.3934366,
+            "testimony": "Bryan works here"
+        },
+
+        {
+            "lat": 37.7643761,
+            "long": 122.459239,
+            "testimony": "clutch burritos"
+        }
+    ]       
+}
