@@ -61,17 +61,7 @@ export default class App extends React.Component {
 
   _handlePress = (event)=>{
     console.log("got clicked1");
-    this._showModal(true)
-    this.setState({
-      markers: [... this.state.markers,
-            {
-            coordinate:{latitude: 37.78825,
-            longitude: -122.4324},
-            title:"title",
-            description:"description"
-          }
-         ]
-    });
+    this._showModal()
   }
 
   _submitTestimony = (event)=>{
@@ -80,10 +70,11 @@ export default class App extends React.Component {
     console.log(this.state.addr)
     console.log(this.state.testimony)
     
-    this._showModal(false)
+    this._hideModal()
 
     Geocoder.getFromLocation(this.state.addr).then(json => {
         var location = json.results[0].geometry.location;
+        console.log(location)
         this.setState({
           markers: [... this.state.markers,
                 {
