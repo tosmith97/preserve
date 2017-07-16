@@ -3,25 +3,29 @@
         {
             "lat": 37.7766135,
             "long": -122.3943623,
-            "testimony": "Fidel works here"
+            "title": "STRIPE", 
+            "description": "i love stripe because fidel works here"
         },
 
         {
             "lat": 37.7846514,
             "long": -122.3994915,
-            "testimony": "Tyler works here"
+            "title":"AFFIRM",
+            "description": "Tyler works here"
         },
 
         {
             "lat": 37.7822671,
             "long": -122.3934366,
-            "testimony": "Bryan works here"
+            "title":"GITHUB",
+            "description": "Bryan works here"
         },
 
         {
             "lat": 37.7643761,
             "long": -122.459239,
-            "testimony": "clutch burritos"
+            "title":"El farolito",
+            "description": "only the most clutch burritos I've ever had here"
         }
     ]       
 }

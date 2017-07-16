@@ -6,6 +6,10 @@ import { Button } from 'react-native-elements';
 import testimony from './testimony.json'
 import Modal from 'react-native-modal'
 
+import Geocoder from 'react-native-geocoding';
+
+Geocoder.setApiKey('AIzaSyBkB_MKN6sshXV2H8PZRjyH2ABvcu4FBC4');
+
 export default class App extends React.Component {
   
   state = {
@@ -75,7 +79,27 @@ export default class App extends React.Component {
     console.log(this.state.placeName)
     console.log(this.state.addr)
     console.log(this.state.testimony)
+    
     this._showModal(false)
+
+    Geocoder.getFromLocation(this.state.addr).then(json => {
+        var location = json.results[0].geometry.location;
+        this.setState({
+          markers: [... this.state.markers,
+                {
+                coordinate:{latitude: location.lat,
+                longitude: location.lng},
+                title: this.state.placeName,
+                description: this.state.testimony
+              }
+             ]
+        });
+      },
+      error => {
+        alert(error);
+      }
+      )
+
     this.setState({
       markers: [... this.state.markers,
             {
@@ -112,13 +136,18 @@ export default class App extends React.Component {
               coordinate={{
                 latitude: item.lat,
                 longitude: item.long
-              }}
+                }}
+                title={item.title}
+                description= {item.description}
           />
       })}
 
       {this.state.markers.map(function(element){
       return <MapView.Marker
         {...element}
+        onPress={function(){
+          console.log("tapp marker")
+        }}
       />
       })}
 
