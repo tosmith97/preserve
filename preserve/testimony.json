@@ -4,28 +4,32 @@
             "lat": 37.7766135,
             "long": -122.3943623,
             "title": "STRIPE", 
-            "description": "i love stripe because fidel works here"
+            "description": "i love stripe because fidel works here",
+            "id": 1
         },
 
         {
             "lat": 37.7846514,
             "long": -122.3994915,
             "title":"AFFIRM",
-            "description": "Tyler works here"
+            "description": "Tyler works here",
+            "id": 2
         },
 
         {
             "lat": 37.7822671,
             "long": -122.3934366,
             "title":"GITHUB",
-            "description": "Bryan works here"
+            "description": "Bryan works here", 
+            "id": 3
         },
 
         {
             "lat": 37.7643761,
             "long": -122.459239,
             "title":"El farolito",
-            "description": "only the most clutch burritos I've ever had here"
+            "description": "only the most clutch burritos I've ever had here",
+            "id": 4
         }
     ]       
 }

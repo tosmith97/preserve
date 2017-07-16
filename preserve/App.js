@@ -23,6 +23,12 @@ export default class App extends React.Component {
   _showModal = () => this.setState({ isModalVisible: true })
   _hideModal = () => this.setState({ isModalVisible: false })
 
+  _flushState = () => {
+    this.setState({placeName: ''})
+    this.setState({testimony: ''})
+    this.setState({addr: ''})
+  }
+
   _renderModalContent = () => (
     <View style={styles.modalContent}>
       <Text style={{height: 40}}>Add testimony</Text>
@@ -62,6 +68,7 @@ export default class App extends React.Component {
   _handlePress = (event)=>{
     console.log("got clicked1");
     this._showModal()
+    this._flushState()
   }
 
   _submitTestimony = (event)=>{
@@ -80,7 +87,7 @@ export default class App extends React.Component {
                 {
                 coordinate:{latitude: location.lat,
                 longitude: location.lng},
-                title: this.state.placeName,
+                title: this.state.placeName.toUpperCase(),
                 description: this.state.testimony
               }
              ]
@@ -90,17 +97,6 @@ export default class App extends React.Component {
         alert(error);
       }
       )
-
-    this.setState({
-      markers: [... this.state.markers,
-            {
-            coordinate:{latitude: 37.78825,
-            longitude: -122.4324},
-            title: this.state.placeName,
-            description: this.state.testimony
-          }
-         ]
-    });
   } 
   
   render() {
@@ -130,6 +126,7 @@ export default class App extends React.Component {
                 }}
                 title={item.title}
                 description= {item.description}
+                key={item.id}
           />
       })}
 
@@ -188,7 +185,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 22,
     justifyContent: 'center',
-    //alignItems: 'center',
     borderRadius: 4,
     borderColor: 'rgba(0, 0, 0, 0.1)',
   },
